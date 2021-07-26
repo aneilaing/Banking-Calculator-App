@@ -1,0 +1,78 @@
+﻿<phone:PhoneApplicationPage
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls"
+    xmlns:toolkit1="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit" x:Name="LoanPage"
+    x:Class="Banking_Calculator.LoanPivot1"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait"  Orientation="Portrait"
+    shell:SystemTray.IsVisible="False" Background="#FF69E2DD" Loaded="LoanPage_Loaded">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <!--Pivot Control-->
+        <toolkit:Pivot x:Name="LoanPivot" Title="MY APPLICATION" Background="#7F7E83E6">
+            <!--Pivot item one-->
+            <toolkit:PivotItem x:Name="InputPivotItem" Header="Input" Margin="10,24,14,4">
+                <StackPanel HorizontalAlignment="Left" Margin="10,45,0,10" Width="436">
+                    <Grid Height="591" Margin="10,0,0,0">
+
+                        <TextBox x:Name="LoanAmTxtBxLbl" TextWrapping="Wrap" Text="Loan Amount:" FontSize="22" Margin="-5,0,247,513" Background="#FF2F8346" BorderBrush="#FF3C2828" SelectionForeground="#FFB23131" CaretBrush="#FFA23E3E" IsEnabled="False" IsReadOnly="True"/>
+                        <TextBox x:Name="LoanAmtTxtBx" Text="Enter Loan Amount" Margin="154,0,0,513" RenderTransformOrigin="0.532,-0.684" InputScope="Number" SelectionForeground="#FFB02626" GotFocus="LoanAmtTxtBx_GotFocus" LostFocus="LoanAmtTxtBx_LostFocus" FontSize="18" FlowDirection="RightToLeft"/>
+                        <TextBox x:Name="LoanPeriodTxtBxLbl" HorizontalAlignment="Left" Height="72" Margin="-5,78,0,0" TextWrapping="Wrap" Text="Loan Period:" VerticalAlignment="Top" Width="184" FontSize="22" Background="#FF2F8346" BorderBrush="#FF3C2828" SelectionForeground="#FFB23131" IsEnabled="False" IsReadOnly="True"/>
+                        <TextBox x:Name="InterestRateTxtBxLbl" HorizontalAlignment="Left" Height="72" Margin="-5,222,0,0" TextWrapping="Wrap" Text="Interest Rate:" VerticalAlignment="Top" Width="184" FontSize="22" Background="#FF2F8346" BorderBrush="#FF3C2828" SelectionForeground="#FFB23131" IsEnabled="False" IsReadOnly="True"/>
+                        <TextBox x:Name="CompoundTxtBxLbl" HorizontalAlignment="Left" Height="76" Margin="-5,299,0,0" TextWrapping="Wrap" Text="Compound:" VerticalAlignment="Top" Width="184" FontSize="22" Background="#FF2F8346" BorderBrush="#FF3C2828" SelectionForeground="#FFB23131" IsEnabled="False" IsReadOnly="True"/>
+                        <TextBox x:Name="LoanPeriodYrTxtBx" Text="Years" Margin="154,78,92,441" RenderTransformOrigin="0.532,-0.684" InputScope="Number" GotFocus="LoanPeriodYrTxtBx_GotFocus" LostFocus="LoanPeriodYrTxtBx_LostFocus" FontSize="18" FlowDirection="RightToLeft"/>
+                        <TextBox x:Name="LoanPeriodMthTxtBx" Text="Months" Margin="154,150,92,369" RenderTransformOrigin="0.532,-0.684" InputScope="Number" GotFocus="LoanPeriodMthTxtBx_GotFocus" LostFocus="LoanPeriodMthTxtBx_LostFocus" FontSize="18" FlowDirection="RightToLeft"/>
+                        <TextBox x:Name="InterestRateTxtBx" Text="Interest Rate %" Margin="154,222,61,297" RenderTransformOrigin="0.532,-0.684" InputScope="Number" GotFocus="InterestRateTxtBx_GotFocus" LostFocus="InterestRateTxtBx_LostFocus" FontSize="18" FlowDirection="RightToLeft"/>
+                        <TextBox x:Name="LoanPeriodYrTxtBx_Copy" TextWrapping="Wrap" Text="Years" Margin="310,78,0,441" RenderTransformOrigin="0.532,-0.684" InputScope="Number" IsReadOnly="True" FontSize="22" IsEnabled="False"/>
+                        <TextBox x:Name="LoanPeriodMthTxtBx_Copy" TextWrapping="Wrap" Text="Months" Margin="310,150,0,369" RenderTransformOrigin="0.532,-0.684" InputScope="Number" FontSize="22" IsReadOnly="True" IsEnabled="False"/>
+                        <TextBox x:Name="InterestRateTxtBx_Copy" TextWrapping="Wrap" Text="%" Margin="339,222,0,297" RenderTransformOrigin="0.532,-0.684" IsReadOnly="True" IsEnabled="False"/>
+                        <toolkit1:ListPicker x:Name="CompoundListPicker" Margin="167,303,0,0" VerticalAlignment="Top" Height="207" GotFocus="CompoundListPicker_GotFocus" HorizontalAlignment="Left" Width="249" Canvas.ZIndex="5">
+                            <toolkit1:ListPickerItem x:Name="MonthlyLPI" Content="Monthly" Height="48" HorizontalAlignment="Left" Width="239" FontSize="22" />
+                            <toolkit1:ListPickerItem x:Name="YearlyLPI" Content="Yearly" FontSize="22"/>
+                            <toolkit1:ListPickerItem x:Name="HalfYearlyLPI" Content="Half-Yearly" FontSize="22"/>
+
+                        </toolkit1:ListPicker>
+                        <Button x:Name="ClearBtn" Content="Clear All" HorizontalAlignment="Left" Margin="0,438,0,54" Width="162" Click="ClearBtn_Click"/>
+                        <Button x:Name="CalculateBtn" HorizontalAlignment="Left" Margin="154,438,0,0" VerticalAlignment="Top" Width="272" Click="CalculateBtn_Click" Height="99" Content="Calculate"/>
+                    </Grid>
+                </StackPanel>
+            </toolkit:PivotItem>
+
+            <!--Pivot item two-->
+            <toolkit:PivotItem x:Name="SummaryPivotItem" Header="Data">
+                <Grid x:Name="DisplayDataGrid" HorizontalAlignment="Left" Height="593" Margin="10,0,0,0" VerticalAlignment="Top" Width="436">
+                    <TextBox x:Name="DispLoanAmtTxtBx" HorizontalAlignment="Left" Height="72" Margin="-10,0,0,0" TextWrapping="Wrap" Text="Loan Amount" VerticalAlignment="Top" Width="193" FontSize="20" IsEnabled="False" Background="#263679C7" SelectionForeground="#FF252121" IsReadOnly="True"/>
+                    <TextBox x:Name="DispInterestRateTxtBx" HorizontalAlignment="Left" Height="72" Margin="-10,72,0,0" TextWrapping="Wrap" Text="Interest Rate %" VerticalAlignment="Top" Width="193" FontSize="20" IsEnabled="False" Background="#263679C7" SelectionForeground="#FF252121" IsReadOnly="True"/>
+                    <TextBox x:Name="DispPeriodTxtBx" HorizontalAlignment="Left" Height="72" Margin="-10,144,0,0" TextWrapping="Wrap" Text="Interest Period" VerticalAlignment="Top" Width="193" FontSize="20" IsEnabled="False" Background="#263679C7" SelectionForeground="#FF252121" IsReadOnly="True"/>
+                    <TextBox x:Name="DispCompoundTxtBx" HorizontalAlignment="Left" Height="72" Margin="-10,216,0,0" TextWrapping="Wrap" Text="Compounding " VerticalAlignment="Top" Width="193" FontSize="20" IsEnabled="False" Background="#263679C7" SelectionForeground="#FF252121" IsReadOnly="True"/>
+                    <TextBox x:Name="DispMonthPmtTxtBx" HorizontalAlignment="Left" Height="67" Margin="-10,284,0,0" TextWrapping="Wrap" Text="Monthly Payment" VerticalAlignment="Top" Width="193" FontSize="20" IsEnabled="False" Background="#263679C7" SelectionForeground="#FF252121" IsReadOnly="True"/>
+                    <TextBox x:Name="DispTotalIntTxtBx" HorizontalAlignment="Left" Height="67" Margin="-10,356,0,0" TextWrapping="Wrap" Text="Total Interest" VerticalAlignment="Top" Width="193" FontSize="20" IsEnabled="False" Background="#263679C7" SelectionForeground="#FF252121" IsReadOnly="True"/>
+                    <TextBox x:Name="DispTotalAmtTxtBx" HorizontalAlignment="Left" Height="63" Margin="-10,428,0,0" TextWrapping="Wrap" Text="Total Amount" VerticalAlignment="Top" Width="193" FontSize="20" IsEnabled="False" Background="#263679C7" SelectionForeground="#FF252121" IsReadOnly="True"/>
+                    <TextBox x:Name="DispLoanAmtTxtBx1" HorizontalAlignment="Left" Height="72" Margin="160,0,-14,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="290" FontSize="20" IsEnabled="False" IsReadOnly="True"/>
+                    <TextBox x:Name="DispIntRateTxtBx1" HorizontalAlignment="Left" Height="72" Margin="160,72,-14,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="290" FontSize="20" IsEnabled="False" IsReadOnly="True"/>
+                    <TextBox x:Name="DispPeriodTxtBx1" HorizontalAlignment="Left" Height="72" Margin="160,144,-14,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="290" FontSize="20" IsEnabled="False" IsReadOnly="True"/>
+                    <TextBox x:Name="DispCompoundTxtBx1" HorizontalAlignment="Left" Height="72" Margin="160,216,-14,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="290" FontSize="20" IsEnabled="False" IsReadOnly="True"/>
+                    <TextBox x:Name="DispMonthPmtTxtBx1" HorizontalAlignment="Left" Height="67" Margin="160,284,-14,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="290" FontSize="20" IsEnabled="False" IsReadOnly="True"/>
+                    <TextBox x:Name="DispTotalIntTxtBx1" HorizontalAlignment="Left" Height="67" Margin="160,356,-14,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="290" FontSize="20" IsEnabled="False" IsReadOnly="True"/>
+                    <TextBox x:Name="DispTotalAmtTxtBx1" HorizontalAlignment="Left" Height="63" Margin="160,428,-14,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="290" FontSize="20" IsEnabled="False" IsReadOnly="True"/>
+
+                </Grid>
+            </toolkit:PivotItem>
+            <!--Pivot item three.-->
+            <toolkit:PivotItem x:Name="ListPivotItem" Header="List">
+                <ListBox x:Name="ListPageListBox" HorizontalAlignment="Left" Height="583" Margin="0,10,0,0" VerticalAlignment="Top" Width="446"/>
+            </toolkit:PivotItem>
+
+        </toolkit:Pivot>
+    </Grid>
+
+</phone:PhoneApplicationPage>

@@ -1,0 +1,34 @@
+﻿<UserControl x:Name="DepositControl" Loaded="DepositControl_Loaded"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit" xmlns:local="clr-namespace:Banking_Calculator" x:Class="Banking_Calculator.DepositUC"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    d:DesignHeight="480" d:DesignWidth="480">
+
+    <Grid x:Name="LayoutRoot" Margin="0,0,0,-124" Background="#FF95C1DA">
+        <TextBox x:Name="StartAmtTxtBxLbl" HorizontalAlignment="Left" Height="72" TextWrapping="Wrap" Text="Start Amount:" VerticalAlignment="Top" Width="210" IsEnabled="False" FontSize="24" Margin="0,10,0,0" Background="#26F0E7E7" BorderBrush="#26F9F7F7" Foreground="#DE080808" SelectionBackground="#FFADC794" SelectionForeground="#FFD4CCCC"/>
+        <TextBox x:Name="StartAmtTxtBx" Height="72" Margin="186,10,0,0" TextWrapping="Wrap" Text="Enter Start Amount" VerticalAlignment="Top" FontSize="18" InputScope="Number" GotFocus="StartAmtTxtBx_GotFocus" LostFocus="StartAmtTxtBx_LostFocus"/>
+        <TextBox x:Name="PeriodTxtBxLbl" HorizontalAlignment="Left" Height="72" TextWrapping="Wrap" Text="Deposit Period:" VerticalAlignment="Top" Width="210" IsEnabled="False" FontSize="24" Margin="0,87,0,0" Background="#26F0E7E7" BorderBrush="#26F9F7F7" Foreground="#DE080808" SelectionBackground="#FFADC794" SelectionForeground="#FFD4CCCC"/>
+        <TextBox x:Name="PeriodYearsTxtBx" HorizontalAlignment="Left" Height="72" Margin="186,87,0,0" TextWrapping="Wrap" Text="Years" VerticalAlignment="Top" Width="216" FontSize="18" InputScope="Number" GotFocus="PeriodYearsTxtBx_GotFocus" LostFocus="PeriodYearsTxtBx_LostFocus"/>
+        <TextBox x:Name="YearsLbl" HorizontalAlignment="Left" Height="72" Margin="377,87,0,0" TextWrapping="Wrap" Text="Years" VerticalAlignment="Top" Width="103" IsEnabled="False" FontSize="18"/>
+        <TextBox x:Name="PeriodMonthsTxtBx" HorizontalAlignment="Left" Height="72" Margin="186,159,0,0" TextWrapping="Wrap" Text="Months" VerticalAlignment="Top" Width="216" FontSize="18" InputScope="Number" GotFocus="PeriodMonthsTxtBx_GotFocus" LostFocus="PeriodMonthsTxtBx_LostFocus"/>
+        <TextBox x:Name="MonthsLbl" HorizontalAlignment="Left" Height="72" Margin="377,159,0,0" TextWrapping="Wrap" Text="Months" VerticalAlignment="Top" Width="103" IsEnabled="False" FontSize="18"/>
+        <TextBox x:Name="InterestRateTxtBxLbl" HorizontalAlignment="Left" Height="72" TextWrapping="Wrap" Text="Interest Rate:" VerticalAlignment="Top" Width="210" IsEnabled="False" FontSize="24" Margin="0,231,0,0" Background="#26F0E7E7" BorderBrush="#26F9F7F7" Foreground="#DE080808" SelectionBackground="#FFADC794" SelectionForeground="#FFD4CCCC"/>
+        <TextBox x:Name="InterestRateTxtBx" Height="72" Margin="186,231,78,0" TextWrapping="Wrap" Text="Annual Interest Rate" VerticalAlignment="Top" FontSize="18" InputScope="Number" GotFocus="InterestRateTxtBx_GotFocus" LostFocus="InterestRateTxtBx_LostFocus"/>
+        <TextBox x:Name="PercentLbl" HorizontalAlignment="Left" Height="72" Margin="377,231,0,0" TextWrapping="Wrap" Text="%" VerticalAlignment="Top" Width="103" IsEnabled="False" FontSize="18"/>
+        <TextBox x:Name="CompoundingTxtBxLbl" HorizontalAlignment="Left" Height="78" Margin="0,303,0,0" TextWrapping="Wrap" Text="Compounding" VerticalAlignment="Top" Width="210" FontSize="22" IsEnabled="False" Background="#26F0E7E7" BorderBrush="#26F9F7F7" Foreground="#DE080808" SelectionBackground="#FFADC794" SelectionForeground="#FFD4CCCC"/>
+        <toolkit:ListPicker x:Name="CompoundListPicker" HorizontalAlignment="Left" Margin="198,308,0,0" VerticalAlignment="Top" Width="272" Height="207" GotFocus="CompoundListPicker_GotFocus" Canvas.ZIndex="4" FontSize="22" ScrollViewer.HorizontalScrollBarVisibility="Auto">
+            <toolkit:ListPickerItem x:Name="MonthlyLPI1" Content="Monthly" Height="53" HorizontalAlignment="Left" Width="262" FontSize="22" RenderTransformOrigin="0.664,-1.396"/>
+            <toolkit:ListPickerItem x:Name="YearlyLPI1" Content="Yearly" FontSize="22"/>
+            <toolkit:ListPickerItem x:Name="QuarterlyLPI1" FontSize="22" Content="Quarterly"/>
+            <toolkit:ListPickerItem x:Name="HalfYearlyLPI1" FontSize="22" Content="Half Yearly"/>
+        </toolkit:ListPicker>
+        <Button x:Name="ClearBtn" Content="Clear All" HorizontalAlignment="Left" Margin="10,458,0,0" VerticalAlignment="Top" Height="92" Background="#FF9B9B2C" Click="ClearBtn_Click"/>
+        <Button x:Name="CalculateBtn" Content="Calculate" HorizontalAlignment="Left" Margin="186,458,0,0" VerticalAlignment="Top" Width="294" Height="92" Background="#FF10A654" Click="CalculateBtn_Click"/>
+    </Grid>
+</UserControl>
